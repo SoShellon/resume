@@ -376,8 +376,8 @@
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
 % Others
-\newcommand{\acvSectionTopSkip}{3mm}
-\newcommand{\acvSectionContentTopSkip}{2.5mm}
+\newcommand{\acvSectionTopSkip}{2.5mm}
+\newcommand{\acvSectionContentTopSkip}{2mm}
 
 
 %-------------------------------------------------------------------------------
@@ -531,7 +531,7 @@
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
-  % \vspace{\acvSectionTopSkip}
+  \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
   \phantomsection
   \color{gray}\vhrulefill{0.9pt}
@@ -578,13 +578,14 @@
   \end{tabular*}%
 }
 \newcommand*{\cventrynew}[5]{%
-  \vspace{-2.0mm}
+  % \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-      {}
-      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\}
+    \ifempty{#1}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3}\\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1}\\}
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
   \end{tabular*}%
 }
@@ -633,7 +634,7 @@
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-2.0mm}
+  % \vspace{-2.0mm}
   \begin{center}
     \setlength\tabcolsep{1ex}
     \setlength{\extrarowheight}{0pt}
